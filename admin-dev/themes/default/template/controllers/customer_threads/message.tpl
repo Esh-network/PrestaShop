@@ -82,11 +82,11 @@
 			{if !empty($message.id_product) && empty($message.id_employee)}
 				<dl class="dl-horizontal">
 					<dt>{l s='Product #' d='Admin.Orderscustomers.Feature'}</dt>
-					<dd><a href="{$link->getAdminLink('AdminProducts', true, ['id_product' => $message.id_product, 'updateproduct' => '1'])|escape:'html':'UTF-8'}" title="{l s='View order' d='Admin.Orderscustomers.Feature'}">{$message.id_product} <img src="../img/admin/search.gif" alt="{l s='View' d='Admin.Actions'}" /></a></dd>
+					<dd><a href="{$link->getAdminLink('AdminProducts', true, ['id_product' => $message.id_product, 'updateproduct' => '1'])|unescape:'html':'UTF-8'}" title="{l s='View order' d='Admin.Orderscustomers.Feature'}">{$message.id_product} <img src="../img/admin/search.gif" alt="{l s='View' d='Admin.Actions'}" /></a></dd>
 				</dl>
 			{/if}
 
-			<form class="form-inline" action="{$current|escape:'html':'UTF-8'}&amp;token={$token|escape:'html':'UTF-8'}&amp;id_customer_thread={$message.id_customer_thread}&amp;viewcustomer_thread" method="post" >
+			<form class="form-inline" action="{$current|unescape:'html':'UTF-8'}&amp;token={$token|unescape:'html':'UTF-8'}&amp;id_customer_thread={$message.id_customer_thread}&amp;viewcustomer_thread" method="post" >
 				<input type="hidden" name="id_customer_message" value="{$message.id_customer_message}" />
 				<div class="form-group">
 					<dl class="dl-horizontal">
@@ -160,7 +160,7 @@
 {/if}
 			<dl class="dl-horizontal">
 				<dt>{l s='Message:' d='Admin.Orderscustomers.Feature'}</dt>
-				<dd>{$message.message|escape:'html':'UTF-8'|nl2br}</dd>
+				<dd>{$message.message|unescape:'html':'UTF-8'|nl2br}</dd>
 			</dl>
 		</div>
 {if !$email}
@@ -175,7 +175,7 @@
 	{/if}
 	<div id="reply_to_{$message.id_customer_message}" style="display: none;">
 		<div class="panel">
-			<form action="{$current|escape:'html':'UTF-8'}&amp;token={getAdminToken tab='AdminCustomerThreads'}&amp;id_customer_thread={$message.id_customer_thread|intval}&amp;viewcustomer_thread=1" method="post" enctype="multipart/form-data" class="form-horizontal">
+			<form action="{$current|unescape:'html':'UTF-8'}&amp;token={getAdminToken tab='AdminCustomerThreads'}&amp;id_customer_thread={$message.id_customer_thread|intval}&amp;viewcustomer_thread=1" method="post" enctype="multipart/form-data" class="form-horizontal">
 				<div class="panel-heading">
 					{l s='Please type your reply below:' d='Admin.Orderscustomers.Feature'}
 				</div>
